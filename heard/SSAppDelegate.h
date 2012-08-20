@@ -8,8 +8,21 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface SSAppDelegate : NSObject <NSApplicationDelegate>
 
+@interface SSAppDelegate : NSObject {
+    // UI
+    NSStatusItem *statusItem;
+    NSMenu *menu;
+    NSMenuItem *quitMI;
+    NSMenuItem *aboutMI;
+    NSImage *tiny;
+    
+    // Not UI
+    NSString *logPath;
+    NSString *dateString;
+    
+    NSFileHandle *output;
+}
 @property (assign) IBOutlet NSWindow *window;
-
+// Not UI
 @end
