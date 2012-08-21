@@ -13,8 +13,6 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    SSController *ss = [SSController alloc];
-    [ss init];
+    self.ss = [[SSController alloc] init];
 }
-
 @end

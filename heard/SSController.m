@@ -10,6 +10,8 @@
 
 @implementation SSController
 
+@synthesize statusItem = _statusItem;
+
 - (id) init {
     self = [super init];
     if (self)
@@ -17,7 +19,6 @@
         NSString* tinyName = [[NSBundle mainBundle]
                               pathForResource:@"heard-tiny"
                               ofType:@"png"];
-        NSLog(tinyName);
         self.tiny = [[NSImage alloc] initWithContentsOfFile:tinyName];
         self.menu = [[NSMenu alloc] init];
         
@@ -26,7 +27,7 @@
                        statusItemWithLength:NSVariableStatusItemLength];
         
         [self.statusItem setMenu:self.menu];
-        [self.statusItem setToolTip:@"heard"];
+        // [self.statusItem setTooltip:@"heard"];
         [self.statusItem setImage:self.tiny];
         [self.statusItem setHighlightMode:YES];
         // Set up the menu
@@ -35,7 +36,7 @@
                    action:@selector(terminate:)
                    keyEquivalent:@""];
         
-        [self.menu addItem:_quitMI];
+        [self.menu addItem:self.quitMI];
     }
     
     self.logPath = [@"~/log/songs.csv"

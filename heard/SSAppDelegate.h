@@ -7,8 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "SSController.h"
 
 
 @interface SSAppDelegate : NSObject <NSApplicationDelegate>
-
+    @property (strong) SSController *ss;
 @end

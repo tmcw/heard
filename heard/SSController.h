@@ -12,14 +12,14 @@
     
     // UI
     @property (strong) NSStatusItem *statusItem;
-    @property (weak) NSMenu *menu;
-    @property (weak) NSMenuItem *quitMI;
-    @property (weak) NSMenuItem *aboutMI;
-    @property (weak) NSImage *tiny;
+    @property (strong) NSMenu *menu;
+    @property (strong) NSMenuItem *quitMI;
+    @property (strong) NSMenuItem *aboutMI;
+    @property (strong) NSImage *tiny;
     
     // Not UI
-    @property (weak) NSString *logPath;
-    @property (weak) NSString *dateString;
+    @property (strong) NSString *logPath;
+    @property (strong) NSString *dateString;
     
     @property (strong) NSFileHandle *output;
 
