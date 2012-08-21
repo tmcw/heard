@@ -44,6 +44,9 @@
         self.locationManager.delegate = self; // send loc updates to myself
     }
     
+    self.lat = 0;
+    self.lon = 0;
+    
     [self.locationManager startUpdatingLocation];
     
     self.logPath = [@"~/log/songs.csv"
@@ -61,7 +64,7 @@
         [alert addButtonWithTitle:@"OK"];
         [alert addButtonWithTitle:@"Quit"];
         [alert setMessageText:@"It looks like this is the first time you're\
-         using minute-agent."];
+         using heard."];
         [alert setInformativeText:[NSString stringWithFormat:@"Click OK to create %@.", self.logPath]];
         [alert setAlertStyle:NSWarningAlertStyle];
         NSInteger result = [alert runModal];
@@ -120,10 +123,11 @@
 
 - (void)onPlayerInfo:(NSNotification*)note
 {
+    NSLog(@"%d", self.lon);
     NSDictionary* newtrack = note.userInfo;
     [self.output seekToEndOfFile];
     [self.output writeData:[[NSString
-                        stringWithFormat:@"%f,\"%@\",\"%@\",%@,%@\n",
+                        stringWithFormat:@"%f,\"%@\",\"%@\",%f,%f\n",
                         floor([[NSDate date] timeIntervalSince1970]),
                         [[newtrack objectForKey:@"Artist"] stringByReplacingOccurrencesOfString:@"\"" withString:@"\"\""],
                         [[newtrack objectForKey:@"Name"] stringByReplacingOccurrencesOfString:@"\"" withString:@"\"\""],

@@ -10,7 +10,6 @@
 #import <CoreLocation/CoreLocation.h>
 
 @interface SSController : NSObject <NSApplicationDelegate>
-    
     // UI
     @property (strong) NSStatusItem *statusItem;
     @property (strong) NSMenu *menu;
@@ -26,4 +25,7 @@
     
     // Location
     @property (nonatomic, strong) CLLocationManager *locationManager;
+
+    @property (nonatomic, assign) double lat;
+    @property (nonatomic, assign) double lon;
 @end
