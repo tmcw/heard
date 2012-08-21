@@ -17,6 +17,13 @@
 		910E575815E2C2DD002271B8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 910E573815E2C2DD002271B8 /* Cocoa.framework */; };
 		910E576015E2C2DD002271B8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 910E575E15E2C2DD002271B8 /* InfoPlist.strings */; };
 		910E576315E2C2DD002271B8 /* heardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 910E576215E2C2DD002271B8 /* heardTests.m */; };
+		9167B75A15E3B81000B58012 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9167B75915E3B81000B58012 /* icon.png */; };
+		9167B75C15E3B81A00B58012 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9167B75B15E3B81A00B58012 /* icon.png */; };
+		9167B75E15E3B8A700B58012 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 9167B75D15E3B8A700B58012 /* icon.icns */; };
+		9167B76515E3B99500B58012 /* SSController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9167B76415E3B99500B58012 /* SSController.m */; };
+		9167B76715E3BBEC00B58012 /* heard.png in Resources */ = {isa = PBXBuildFile; fileRef = 9167B76615E3BBEC00B58012 /* heard.png */; };
+		9167B76915E3BD5400B58012 /* heard-tiny.png in Resources */ = {isa = PBXBuildFile; fileRef = 9167B76815E3BD5400B58012 /* heard-tiny.png */; };
+		918C724C15E4230F006FEEB0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918C724B15E4230F006FEEB0 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +56,14 @@
 		910E575F15E2C2DD002271B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		910E576115E2C2DD002271B8 /* heardTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = heardTests.h; sourceTree = "<group>"; };
 		910E576215E2C2DD002271B8 /* heardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = heardTests.m; sourceTree = "<group>"; };
+		9167B75915E3B81000B58012 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = assets/icon.png; sourceTree = "<group>"; };
+		9167B75B15E3B81A00B58012 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		9167B75D15E3B8A700B58012 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		9167B76315E3B99500B58012 /* SSController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSController.h; sourceTree = "<group>"; };
+		9167B76415E3B99500B58012 /* SSController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSController.m; sourceTree = "<group>"; };
+		9167B76615E3BBEC00B58012 /* heard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heard.png; path = assets/heard.png; sourceTree = "<group>"; };
+		9167B76815E3BD5400B58012 /* heard-tiny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "heard-tiny.png"; path = "assets/heard-tiny.png"; sourceTree = "<group>"; };
+		918C724B15E4230F006FEEB0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				918C724C15E4230F006FEEB0 /* CoreLocation.framework in Frameworks */,
 				910E573915E2C2DD002271B8 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -75,6 +91,10 @@
 		910E572915E2C2DD002271B8 = {
 			isa = PBXGroup;
 			children = (
+				918C724B15E4230F006FEEB0 /* CoreLocation.framework */,
+				9167B75D15E3B8A700B58012 /* icon.icns */,
+				9167B75B15E3B81A00B58012 /* icon.png */,
+				9167B75715E3B80000B58012 /* Resources */,
 				910E573E15E2C2DD002271B8 /* heard */,
 				910E575B15E2C2DD002271B8 /* heardTests */,
 				910E573715E2C2DD002271B8 /* Frameworks */,
@@ -116,6 +136,8 @@
 			children = (
 				910E574A15E2C2DD002271B8 /* SSAppDelegate.h */,
 				910E574B15E2C2DD002271B8 /* SSAppDelegate.m */,
+				9167B76315E3B99500B58012 /* SSController.h */,
+				9167B76415E3B99500B58012 /* SSController.m */,
 				910E574D15E2C2DD002271B8 /* MainMenu.xib */,
 				910E573F15E2C2DD002271B8 /* Supporting Files */,
 			);
@@ -151,6 +173,16 @@
 				910E575E15E2C2DD002271B8 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9167B75715E3B80000B58012 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9167B76815E3BD5400B58012 /* heard-tiny.png */,
+				9167B76615E3BBEC00B58012 /* heard.png */,
+				9167B75915E3B81000B58012 /* icon.png */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +260,11 @@
 				910E574315E2C2DD002271B8 /* InfoPlist.strings in Resources */,
 				910E574915E2C2DD002271B8 /* Credits.rtf in Resources */,
 				910E574F15E2C2DD002271B8 /* MainMenu.xib in Resources */,
+				9167B75A15E3B81000B58012 /* icon.png in Resources */,
+				9167B75C15E3B81A00B58012 /* icon.png in Resources */,
+				9167B75E15E3B8A700B58012 /* icon.icns in Resources */,
+				9167B76715E3BBEC00B58012 /* heard.png in Resources */,
+				9167B76915E3BD5400B58012 /* heard-tiny.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +301,7 @@
 			files = (
 				910E574515E2C2DD002271B8 /* main.m in Sources */,
 				910E574C15E2C2DD002271B8 /* SSAppDelegate.m in Sources */,
+				9167B76515E3B99500B58012 /* SSController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +411,7 @@
 		910E576715E2C2DD002271B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "heard/heard-Prefix.pch";
@@ -385,6 +424,7 @@
 		910E576815E2C2DD002271B8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "heard/heard-Prefix.pch";
@@ -443,6 +483,7 @@
 				910E576815E2C2DD002271B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		910E576915E2C2DD002271B8 /* Build configuration list for PBXNativeTarget "heardTests" */ = {
 			isa = XCConfigurationList;
@@ -451,6 +492,7 @@
 				910E576B15E2C2DD002271B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
