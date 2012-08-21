@@ -23,6 +23,7 @@
 		9167B76515E3B99500B58012 /* SSController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9167B76415E3B99500B58012 /* SSController.m */; };
 		9167B76715E3BBEC00B58012 /* heard.png in Resources */ = {isa = PBXBuildFile; fileRef = 9167B76615E3BBEC00B58012 /* heard.png */; };
 		9167B76915E3BD5400B58012 /* heard-tiny.png in Resources */ = {isa = PBXBuildFile; fileRef = 9167B76815E3BD5400B58012 /* heard-tiny.png */; };
+		918C724C15E4230F006FEEB0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918C724B15E4230F006FEEB0 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		9167B76415E3B99500B58012 /* SSController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSController.m; sourceTree = "<group>"; };
 		9167B76615E3BBEC00B58012 /* heard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heard.png; path = assets/heard.png; sourceTree = "<group>"; };
 		9167B76815E3BD5400B58012 /* heard-tiny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "heard-tiny.png"; path = "assets/heard-tiny.png"; sourceTree = "<group>"; };
+		918C724B15E4230F006FEEB0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				918C724C15E4230F006FEEB0 /* CoreLocation.framework in Frameworks */,
 				910E573915E2C2DD002271B8 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,6 +91,7 @@
 		910E572915E2C2DD002271B8 = {
 			isa = PBXGroup;
 			children = (
+				918C724B15E4230F006FEEB0 /* CoreLocation.framework */,
 				9167B75D15E3B8A700B58012 /* icon.icns */,
 				9167B75B15E3B81A00B58012 /* icon.png */,
 				9167B75715E3B80000B58012 /* Resources */,

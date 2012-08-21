@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface SSController : NSObject <NSApplicationDelegate>
     
@@ -22,5 +23,7 @@
     @property (strong) NSString *dateString;
     
     @property (strong) NSFileHandle *output;
-
+    
+    // Location
+    @property (nonatomic, strong) CLLocationManager *locationManager;
 @end

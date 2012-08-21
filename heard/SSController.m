@@ -11,6 +11,7 @@
 @implementation SSController
 
 @synthesize statusItem = _statusItem;
+@synthesize locationManager;
 
 - (id) init {
     self = [super init];
@@ -27,9 +28,10 @@
                        statusItemWithLength:NSVariableStatusItemLength];
         
         [self.statusItem setMenu:self.menu];
-        // [self.statusItem setTooltip:@"heard"];
+        [self.statusItem setToolTip:@"heard"];
         [self.statusItem setImage:self.tiny];
         [self.statusItem setHighlightMode:YES];
+        
         // Set up the menu
         self.quitMI = [[NSMenuItem alloc]
                    initWithTitle:NSLocalizedString(@"Quit",@"")
@@ -37,10 +39,16 @@
                    keyEquivalent:@""];
         
         [self.menu addItem:self.quitMI];
+        
+        self.locationManager = [[CLLocationManager alloc] init];
+        self.locationManager.delegate = self; // send loc updates to myself
     }
+    
+    [self.locationManager startUpdatingLocation];
     
     self.logPath = [@"~/log/songs.csv"
                stringByExpandingTildeInPath];
+    
     
     NSString *logDirPath = [@"~/log/"
                             stringByExpandingTildeInPath];
@@ -94,15 +102,33 @@
     return self;
 }
 
+- (void)locationManager:(CLLocationManager *)manager
+    didUpdateToLocation:(CLLocation *)newLocation
+           fromLocation:(CLLocation *)oldLocation
+{
+    self.lat = [newLocation coordinate].latitude;
+    self.lon = [newLocation coordinate].longitude;
+    NSLog(@"Location: %@", [newLocation description]);
+}
+
+
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error
+{
+	NSLog(@"Error: %@", [error description]);
+}
+
 - (void)onPlayerInfo:(NSNotification*)note
 {
     NSDictionary* newtrack = note.userInfo;
     [self.output seekToEndOfFile];
     [self.output writeData:[[NSString
-                        stringWithFormat:@"%f,\"%@\",\"%@\"\n",
+                        stringWithFormat:@"%f,\"%@\",\"%@\",%@,%@\n",
                         floor([[NSDate date] timeIntervalSince1970]),
                         [[newtrack objectForKey:@"Artist"] stringByReplacingOccurrencesOfString:@"\"" withString:@"\"\""],
-                        [[newtrack objectForKey:@"Name"] stringByReplacingOccurrencesOfString:@"\"" withString:@"\"\""]
+                        [[newtrack objectForKey:@"Name"] stringByReplacingOccurrencesOfString:@"\"" withString:@"\"\""],
+                        self.lon,
+                        self.lat
                         ]
                        dataUsingEncoding:NSUTF8StringEncoding]];
 }
