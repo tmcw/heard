@@ -8,6 +8,7 @@
 
 #import "SSAppDelegate.h"
 #import "SSController.h"
+#import "SSPrefController.h"
 
 @implementation SSAppDelegate
 

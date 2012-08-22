@@ -17,6 +17,7 @@
 		910E575815E2C2DD002271B8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 910E573815E2C2DD002271B8 /* Cocoa.framework */; };
 		910E576015E2C2DD002271B8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 910E575E15E2C2DD002271B8 /* InfoPlist.strings */; };
 		910E576315E2C2DD002271B8 /* heardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 910E576215E2C2DD002271B8 /* heardTests.m */; };
+		914AA1AA15E468CF00BB0888 /* SSPrefController.m in Sources */ = {isa = PBXBuildFile; fileRef = 914AA1A915E468CF00BB0888 /* SSPrefController.m */; };
 		9167B75A15E3B81000B58012 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9167B75915E3B81000B58012 /* icon.png */; };
 		9167B75C15E3B81A00B58012 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9167B75B15E3B81A00B58012 /* icon.png */; };
 		9167B75E15E3B8A700B58012 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 9167B75D15E3B8A700B58012 /* icon.icns */; };
@@ -56,6 +57,8 @@
 		910E575F15E2C2DD002271B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		910E576115E2C2DD002271B8 /* heardTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = heardTests.h; sourceTree = "<group>"; };
 		910E576215E2C2DD002271B8 /* heardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = heardTests.m; sourceTree = "<group>"; };
+		914AA1A815E468CF00BB0888 /* SSPrefController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPrefController.h; sourceTree = "<group>"; };
+		914AA1A915E468CF00BB0888 /* SSPrefController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPrefController.m; sourceTree = "<group>"; };
 		9167B75915E3B81000B58012 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = assets/icon.png; sourceTree = "<group>"; };
 		9167B75B15E3B81A00B58012 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		9167B75D15E3B8A700B58012 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
@@ -135,6 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				910E574A15E2C2DD002271B8 /* SSAppDelegate.h */,
+				914AA1A815E468CF00BB0888 /* SSPrefController.h */,
+				914AA1A915E468CF00BB0888 /* SSPrefController.m */,
 				910E574B15E2C2DD002271B8 /* SSAppDelegate.m */,
 				9167B76315E3B99500B58012 /* SSController.h */,
 				9167B76415E3B99500B58012 /* SSController.m */,
@@ -302,6 +307,7 @@
 				910E574515E2C2DD002271B8 /* main.m in Sources */,
 				910E574C15E2C2DD002271B8 /* SSAppDelegate.m in Sources */,
 				9167B76515E3B99500B58012 /* SSController.m in Sources */,
+				914AA1AA15E468CF00BB0888 /* SSPrefController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

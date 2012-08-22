@@ -7,6 +7,7 @@
 //
 
 #import "SSController.h"
+#import "SSPrefController.h"
 
 @implementation SSController
 
@@ -33,11 +34,19 @@
         [self.statusItem setHighlightMode:YES];
         
         // Set up the menu
+        self.prefMI = [[NSMenuItem alloc]
+                       initWithTitle:NSLocalizedString(@"Preferences...",@"")
+                       action:@selector(prefWindow)
+                       keyEquivalent:@","];
+        [self.prefMI setTarget:self];
+        
+        // Set up the menu
         self.quitMI = [[NSMenuItem alloc]
                    initWithTitle:NSLocalizedString(@"Quit",@"")
                    action:@selector(terminate:)
                    keyEquivalent:@""];
         
+        [self.menu addItem:self.prefMI];
         [self.menu addItem:self.quitMI];
         
         self.locationManager = [[CLLocationManager alloc] init];
@@ -103,6 +112,12 @@
                                                             name:@"com.apple.iTunes.playerInfo"
                                                           object:nil];
     return self;
+}
+
+
+- (void)prefWindow
+{
+    [[SSPrefController alloc] initWithWindowNibName:@"PrefWindow"];
 }
 
 - (void)locationManager:(CLLocationManager *)manager

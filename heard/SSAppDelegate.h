@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "SSController.h"
+#import "SSPrefController.h"
 
 
 @interface SSAppDelegate : NSObject <NSApplicationDelegate>
