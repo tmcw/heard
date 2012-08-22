@@ -117,7 +117,8 @@
 
 - (void)prefWindow
 {
-    [[SSPrefController alloc] initWithWindowNibName:@"PrefWindow"];
+    self.prefController = [[SSPrefController alloc] init];
+    [self.prefController showWindow:self];
 }
 
 - (void)locationManager:(CLLocationManager *)manager
@@ -126,19 +127,16 @@
 {
     self.lat = [newLocation coordinate].latitude;
     self.lon = [newLocation coordinate].longitude;
-    NSLog(@"Location: %@", [newLocation description]);
 }
 
 
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error
 {
-	NSLog(@"Error: %@", [error description]);
 }
 
 - (void)onPlayerInfo:(NSNotification*)note
 {
-    NSLog(@"%d", self.lon);
     NSDictionary* newtrack = note.userInfo;
     [self.output seekToEndOfFile];
     [self.output writeData:[[NSString

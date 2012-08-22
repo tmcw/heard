@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
+#import "SSPrefController.h"
 
 @interface SSController : NSObject <NSApplicationDelegate>
 // Configuration
 @property (strong) NSUserDefaults *prefs;
+@property (strong) SSPrefController *prefController;
 
 // UI
 @property (strong) NSStatusItem *statusItem;
