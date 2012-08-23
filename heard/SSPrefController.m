@@ -24,6 +24,32 @@
     return self;
 }
 
+- (IBAction)doSaveAs:(id)pId; {
+    NSLog(@"doSaveAs");
+    NSSavePanel *tvarNSSavePanelObj	= [NSSavePanel savePanel];
+    long tvarInt	= [tvarNSSavePanelObj runModal];
+    
+    if(tvarInt == NSOKButton){
+     	NSLog(@"doSaveAs we have an OK button");
+        [[NSUserDefaults standardUserDefaults] setValue:[tvarNSSavePanelObj filename] forKey:@"FilePath"];
+    } else if(tvarInt == NSCancelButton) {
+     	NSLog(@"doSaveAs we have a Cancel button");
+     	return;
+    } else {
+     	NSLog(@"doSaveAs tvarInt not equal 1 or zero = %3l",tvarInt);
+     	return;
+    } // end if
+    
+    /*
+    NSString * tvarDirectory = [tvarNSSavePanelObj directory];
+    NSLog(@"doSaveAs directory = %@",tvarDirectory);
+    
+    NSString * tvarFilename = [tvarNSSavePanelObj filename];
+    NSLog(@"doSaveAs filename = %@",tvarFilename);
+     */
+    
+} // end doSaveAs
+
 #pragma mark -
 - (NSString *)currentFilePath
 {
