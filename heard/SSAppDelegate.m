@@ -11,6 +11,7 @@
 #import "SSPrefController.h"
 
 @implementation SSAppDelegate
+@class SSPrefController;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {

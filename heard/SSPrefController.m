@@ -9,20 +9,35 @@
 #import "SSPrefController.h"
 
 @implementation SSPrefController
-- (id)init
+- (id)initWithWindowNibName:(NSString *)windowNibName
 {
-    self = [super initWithWindowNibName:@"PrefWindow"];
-    if(self)
-    {
-        //initialize stuff
+    self = [super initWithWindowNibName:windowNibName];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserverForName:NSUserDefaultsDidChangeNotification
+                                                          object:[NSUserDefaults standardUserDefaults]
+                                                           queue:[NSOperationQueue mainQueue]
+                                                      usingBlock:^(NSNotification *notification)
+         {
+             NSUserDefaults *defaults = [notification object];
+         }];
     }
     return self;
 }
-//this is a simple override of -showWindow: to ensure the window is always centered
--(IBAction)showWindow:(id)sender
+
+#pragma mark -
+- (NSString *)currentFilePath
 {
-    [super showWindow:sender];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"FilePath"])
+    {
+        return [[NSUserDefaults standardUserDefaults] objectForKey:@"FilePath"];
+    }
+    return @"";
+}
+#pragma mark -
+#pragma mark NSWindowDelegate
+
+- (void)awakeFromNib
+{
     [[self window] center];
-    [[self window] makeKeyAndOrderFront:sender];
 }
 @end

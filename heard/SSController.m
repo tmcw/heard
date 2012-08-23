@@ -12,7 +12,7 @@
 @implementation SSController
 
 @synthesize statusItem = _statusItem;
-@synthesize locationManager;
+// @synthesize locationManager;
 
 - (id) init {
     self = [super init];
@@ -49,14 +49,16 @@
         [self.menu addItem:self.prefMI];
         [self.menu addItem:self.quitMI];
         
+        /*
         self.locationManager = [[CLLocationManager alloc] init];
         self.locationManager.delegate = self; // send loc updates to myself
+         */
     }
     
-    self.lat = 0;
-    self.lon = 0;
+    //self.lat = 0;
+    //self.lon = 0;
     
-    [self.locationManager startUpdatingLocation];
+    // [self.locationManager startUpdatingLocation];
     
     self.logPath = [@"~/log/songs.csv"
                stringByExpandingTildeInPath];
@@ -117,7 +119,11 @@
 
 - (void)prefWindow
 {
-    self.prefController = [[SSPrefController alloc] init];
+    // NSLog(@"Opening pref window");
+    if (!self.prefController) {
+        self.prefController = [[SSPrefController alloc] initWithWindowNibName:@"PrefWindow"];
+    }
+    
     [self.prefController showWindow:self];
 }
 
@@ -125,8 +131,8 @@
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation
 {
-    self.lat = [newLocation coordinate].latitude;
-    self.lon = [newLocation coordinate].longitude;
+    //self.lat = [newLocation coordinate].latitude;
+    //self.lon = [newLocation coordinate].longitude;
 }
 
 
@@ -140,12 +146,12 @@
     NSDictionary* newtrack = note.userInfo;
     [self.output seekToEndOfFile];
     [self.output writeData:[[NSString
-                        stringWithFormat:@"%f,\"%@\",\"%@\",%f,%f\n",
+                        stringWithFormat:@"%f,\"%@\",\"%@\"\n",
                         floor([[NSDate date] timeIntervalSince1970]),
                         [[newtrack objectForKey:@"Artist"] stringByReplacingOccurrencesOfString:@"\"" withString:@"\"\""],
-                        [[newtrack objectForKey:@"Name"] stringByReplacingOccurrencesOfString:@"\"" withString:@"\"\""],
-                        self.lon,
-                        self.lat
+                        [[newtrack objectForKey:@"Name"] stringByReplacingOccurrencesOfString:@"\"" withString:@"\"\""]//,
+                        //self.lon,
+                        //self.lat
                         ]
                        dataUsingEncoding:NSUTF8StringEncoding]];
 }

@@ -29,7 +29,9 @@
 @property (strong) NSFileHandle *output;
 
 // Location
+/*
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic, assign) double lat;
 @property (nonatomic, assign) double lon;
+ */
 @end

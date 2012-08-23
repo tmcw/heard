@@ -8,6 +8,5 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SSPrefController : NSWindowController
-
+@interface SSPrefController : NSWindowController <NSWindowDelegate>
 @end
