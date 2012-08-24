@@ -61,7 +61,7 @@
     } else if (self.output == nil) {
         BOOL success = [[NSFileManager defaultManager]
                         createFileAtPath:self.logPath
-                        contents:[@"minute,artist,song\n" dataUsingEncoding:NSUTF8StringEncoding]
+                        contents:[@"minute,artist,song,album,duration,id\n" dataUsingEncoding:NSUTF8StringEncoding]
                         attributes:nil];
         
         if (success == YES) {
@@ -107,10 +107,14 @@
     NSDictionary* newtrack = note.userInfo;
     [self.output seekToEndOfFile];
     [self.output writeData:[[NSString
-                             stringWithFormat:@"%d,\"%@\",\"%@\"\n",
+                             stringWithFormat:@"%d,\"%@\",\"%@\",\"%@\",%d,%d\n",
                              (int) [[NSDate date] timeIntervalSince1970],
                              [[newtrack objectForKey:@"Artist"] stringByReplacingOccurrencesOfString:@"\"" withString:@"\"\""],
-                             [[newtrack objectForKey:@"Name"] stringByReplacingOccurrencesOfString:@"\"" withString:@"\"\""]
+                             [[newtrack objectForKey:@"Name"] stringByReplacingOccurrencesOfString:@"\"" withString:@"\"\""],
+                             [[newtrack objectForKey:@"Album"] stringByReplacingOccurrencesOfString:@"\"" withString:@"\"\""],
+                             [[newtrack objectForKey:@"Total Time"] longLongValue] / 1000,
+                             [[newtrack objectForKey:@"PersistentID"] longLongValue] / 1000
+
                              ]
                             dataUsingEncoding:NSUTF8StringEncoding]];
 }
