@@ -169,7 +169,7 @@
 				<string key="NSMaxSize">{10000000000000, 10000000000000}</string>
 				<bool key="NSWindowIsRestorable">YES</bool>
 			</object>
-			<object class="NSUserDefaultsController" id="992446157">
+			<object class="NSUserDefaultsController" id="913035531">
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
 		</array>
@@ -321,7 +321,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">22</int>
-						<reference key="object" ref="992446157"/>
+						<reference key="object" ref="913035531"/>
 						<reference key="parent" ref="0"/>
 					</object>
 				</array>

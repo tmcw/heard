@@ -26,7 +26,7 @@
         
         // Set up my status item
         self.statusItem = [[NSStatusBar systemStatusBar]
-                       statusItemWithLength:NSVariableStatusItemLength];
+                           statusItemWithLength:NSVariableStatusItemLength];
         
         [self.statusItem setMenu:self.menu];
         [self.statusItem setToolTip:@"heard"];
@@ -42,71 +42,46 @@
         
         // Set up the menu
         self.quitMI = [[NSMenuItem alloc]
-                   initWithTitle:NSLocalizedString(@"Quit",@"")
-                   action:@selector(terminate:)
-                   keyEquivalent:@""];
+                       initWithTitle:NSLocalizedString(@"Quit",@"")
+                       action:@selector(terminate:)
+                       keyEquivalent:@""];
         
         [self.menu addItem:self.prefMI];
         [self.menu addItem:self.quitMI];
-        
-        /*
-        self.locationManager = [[CLLocationManager alloc] init];
-        self.locationManager.delegate = self; // send loc updates to myself
-         */
     }
     
-    //self.lat = 0;
-    //self.lon = 0;
-    
-    // [self.locationManager startUpdatingLocation];
-    
-    self.logPath = [@"~/log/songs.csv"
-               stringByExpandingTildeInPath];
-    
-    
-    NSString *logDirPath = [@"~/log/"
-                            stringByExpandingTildeInPath];
+    self.logPath = [[NSUserDefaults standardUserDefaults] objectForKey:@"FilePath"];
     
     self.output = [NSFileHandle
-              fileHandleForWritingAtPath:self.logPath];
+                   fileHandleForWritingAtPath:self.logPath];
     
-    if (self.output == nil) {
-        NSAlert *alert = [[NSAlert alloc] init];
-        [alert addButtonWithTitle:@"OK"];
-        [alert addButtonWithTitle:@"Quit"];
-        [alert setMessageText:@"It looks like this is the first time you're\
-         using heard."];
-        [alert setInformativeText:[NSString stringWithFormat:@"Click OK to create %@.", self.logPath]];
-        [alert setAlertStyle:NSWarningAlertStyle];
-        NSInteger result = [alert runModal];
-        if (result == 1000) {
-            // create directory
-            NSFileManager *filemgr;
-            
-            filemgr = [NSFileManager defaultManager];
-            [filemgr createDirectoryAtPath:logDirPath
-               withIntermediateDirectories:YES
-                                attributes:nil
-                                     error:nil];
-            BOOL success = [filemgr
-                            createFileAtPath:self.logPath
-                            contents:[@"minute,artist,song\n" dataUsingEncoding:NSUTF8StringEncoding]
-                            attributes:nil];
-            
-            if (success == YES) {
-                self.output = [NSFileHandle
-                          fileHandleForWritingAtPath:self.logPath];
-            } else {
-                NSAlert *alert = [[NSAlert alloc] init];
-                [alert setMessageText:@"Could not create file."];
-                [alert setAlertStyle:NSWarningAlertStyle];
-                [alert addButtonWithTitle:@"Quit"];
-                [alert runModal];
-                [NSApp terminate:self];
-            }
+    
+    if (!self.logPath) {
+        [self prefWindow];
+    } else if (self.output == nil) {
+        BOOL success = [[NSFileManager defaultManager]
+                        createFileAtPath:self.logPath
+                        contents:[@"minute,artist,song\n" dataUsingEncoding:NSUTF8StringEncoding]
+                        attributes:nil];
+        
+        if (success == YES) {
+            self.output = [NSFileHandle
+                           fileHandleForWritingAtPath:self.logPath];
         } else {
-            [NSApp terminate:self];
+            NSAlert *alert = [[NSAlert alloc] init];
+            [alert setMessageText:
+             [NSString stringWithFormat:@"Couldn't initialize log at %@. Choose a new path.",
+              self.logPath]];
+            [alert setAlertStyle:NSWarningAlertStyle];
+            [alert addButtonWithTitle:@"Ok"];
+            [alert runModal];
+            [self prefWindow];
         }
+    }
+    
+    
+    if (!self.logPath || self.output == nil) {
+        [self prefWindow];
     }
     // Insert code here to initialize your application
     [[NSDistributedNotificationCenter defaultCenter] addObserver:self
@@ -127,33 +102,17 @@
     [self.prefController showWindow:self];
 }
 
-- (void)locationManager:(CLLocationManager *)manager
-    didUpdateToLocation:(CLLocation *)newLocation
-           fromLocation:(CLLocation *)oldLocation
-{
-    //self.lat = [newLocation coordinate].latitude;
-    //self.lon = [newLocation coordinate].longitude;
-}
-
-
-- (void)locationManager:(CLLocationManager *)manager
-       didFailWithError:(NSError *)error
-{
-}
-
 - (void)onPlayerInfo:(NSNotification*)note
 {
     NSDictionary* newtrack = note.userInfo;
     [self.output seekToEndOfFile];
     [self.output writeData:[[NSString
-                        stringWithFormat:@"%f,\"%@\",\"%@\"\n",
-                        floor([[NSDate date] timeIntervalSince1970]),
-                        [[newtrack objectForKey:@"Artist"] stringByReplacingOccurrencesOfString:@"\"" withString:@"\"\""],
-                        [[newtrack objectForKey:@"Name"] stringByReplacingOccurrencesOfString:@"\"" withString:@"\"\""]//,
-                        //self.lon,
-                        //self.lat
-                        ]
-                       dataUsingEncoding:NSUTF8StringEncoding]];
+                             stringWithFormat:@"%d,\"%@\",\"%@\"\n",
+                             (int) [[NSDate date] timeIntervalSince1970],
+                             [[newtrack objectForKey:@"Artist"] stringByReplacingOccurrencesOfString:@"\"" withString:@"\"\""],
+                             [[newtrack objectForKey:@"Name"] stringByReplacingOccurrencesOfString:@"\"" withString:@"\"\""]
+                             ]
+                            dataUsingEncoding:NSUTF8StringEncoding]];
 }
 
 @end
