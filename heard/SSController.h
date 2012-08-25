@@ -14,13 +14,14 @@
 // Configuration
 @property (strong) NSUserDefaults *prefs;
 @property (strong) SSPrefController *prefController;
+@property (strong) NSWindowController *aboutController;
 
 // UI
 @property (strong) NSStatusItem *statusItem;
 @property (strong) NSMenu *menu;
 @property (strong) NSMenuItem *quitMI;
-@property (strong) NSMenuItem *prefMI;
 @property (strong) NSMenuItem *aboutMI;
+@property (strong) NSMenuItem *prefMI;
 @property (strong) NSImage *tiny;
 
 // The log
@@ -28,10 +29,4 @@
 @property (strong) NSString *dateString;
 @property (strong) NSFileHandle *output;
 
-// Location
-/*
-@property (nonatomic, strong) CLLocationManager *locationManager;
-@property (nonatomic, assign) double lat;
-@property (nonatomic, assign) double lon;
- */
 @end

@@ -26,6 +26,7 @@
 		9167B76715E3BBEC00B58012 /* heard.png in Resources */ = {isa = PBXBuildFile; fileRef = 9167B76615E3BBEC00B58012 /* heard.png */; };
 		9167B76915E3BD5400B58012 /* heard-tiny.png in Resources */ = {isa = PBXBuildFile; fileRef = 9167B76815E3BD5400B58012 /* heard-tiny.png */; };
 		918C724C15E4230F006FEEB0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918C724B15E4230F006FEEB0 /* CoreLocation.framework */; };
+		91D716ED15E8713B00EBE4F2 /* AboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91D716EC15E8713B00EBE4F2 /* AboutWindow.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		9167B76615E3BBEC00B58012 /* heard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heard.png; path = assets/heard.png; sourceTree = "<group>"; };
 		9167B76815E3BD5400B58012 /* heard-tiny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "heard-tiny.png"; path = "assets/heard-tiny.png"; sourceTree = "<group>"; };
 		918C724B15E4230F006FEEB0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		91D716EC15E8713B00EBE4F2 /* AboutWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 				9167B76415E3B99500B58012 /* SSController.m */,
 				910E574D15E2C2DD002271B8 /* MainMenu.xib */,
 				914AA1AC15E473E800BB0888 /* PrefWindow.xib */,
+				91D716EC15E8713B00EBE4F2 /* AboutWindow.xib */,
 				910E573F15E2C2DD002271B8 /* Supporting Files */,
 			);
 			path = heard;
@@ -274,6 +277,7 @@
 				9167B76715E3BBEC00B58012 /* heard.png in Resources */,
 				9167B76915E3BD5400B58012 /* heard-tiny.png in Resources */,
 				914AA1AD15E473E800BB0888 /* PrefWindow.xib in Resources */,
+				91D716ED15E8713B00EBE4F2 /* AboutWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -37,8 +37,15 @@
         self.prefMI = [[NSMenuItem alloc]
                        initWithTitle:NSLocalizedString(@"Preferences...",@"")
                        action:@selector(prefWindow)
-                       keyEquivalent:@","];
+                       keyEquivalent:@""];
         [self.prefMI setTarget:self];
+        
+        // Set up the menu
+        self.aboutMI = [[NSMenuItem alloc]
+                       initWithTitle:NSLocalizedString(@"About",@"")
+                       action:@selector(about)
+                       keyEquivalent:@""];
+        [self.aboutMI setTarget:self];
         
         // Set up the menu
         self.quitMI = [[NSMenuItem alloc]
@@ -47,6 +54,7 @@
                        keyEquivalent:@""];
         
         [self.menu addItem:self.prefMI];
+        [self.menu addItem:self.aboutMI];
         [self.menu addItem:self.quitMI];
     }
     
@@ -91,10 +99,15 @@
     return self;
 }
 
+- (void)about
+{
+    self.aboutController = [[NSWindowController alloc] initWithWindowNibName:@"AboutWindow"];
+    [self.aboutController showWindow:self];
+}
+
 
 - (void)prefWindow
 {
-    // NSLog(@"Opening pref window");
     if (!self.prefController) {
         self.prefController = [[SSPrefController alloc] initWithWindowNibName:@"PrefWindow"];
     }
