@@ -26,6 +26,9 @@
 		9167B76715E3BBEC00B58012 /* heard.png in Resources */ = {isa = PBXBuildFile; fileRef = 9167B76615E3BBEC00B58012 /* heard.png */; };
 		9167B76915E3BD5400B58012 /* heard-tiny.png in Resources */ = {isa = PBXBuildFile; fileRef = 9167B76815E3BD5400B58012 /* heard-tiny.png */; };
 		918C724C15E4230F006FEEB0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 918C724B15E4230F006FEEB0 /* CoreLocation.framework */; };
+		9197461815E876A800A86BEC /* heard-retina.png in Resources */ = {isa = PBXBuildFile; fileRef = 9197461715E876A800A86BEC /* heard-retina.png */; };
+		9197461B15E876F500A86BEC /* heard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9197461A15E876F500A86BEC /* heard@2x.png */; };
+		9197461F15E8776A00A86BEC /* heard-tiny@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9197461E15E8776A00A86BEC /* heard-tiny@2x.png */; };
 		91D716ED15E8713B00EBE4F2 /* AboutWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91D716EC15E8713B00EBE4F2 /* AboutWindow.xib */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +73,9 @@
 		9167B76615E3BBEC00B58012 /* heard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = heard.png; path = assets/heard.png; sourceTree = "<group>"; };
 		9167B76815E3BD5400B58012 /* heard-tiny.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "heard-tiny.png"; path = "assets/heard-tiny.png"; sourceTree = "<group>"; };
 		918C724B15E4230F006FEEB0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9197461715E876A800A86BEC /* heard-retina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "heard-retina.png"; path = "assets/heard-retina.png"; sourceTree = "<group>"; };
+		9197461A15E876F500A86BEC /* heard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "heard@2x.png"; path = "assets/heard@2x.png"; sourceTree = "<group>"; };
+		9197461E15E8776A00A86BEC /* heard-tiny@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "heard-tiny@2x.png"; path = "assets/heard-tiny@2x.png"; sourceTree = "<group>"; };
 		91D716EC15E8713B00EBE4F2 /* AboutWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutWindow.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,6 +195,9 @@
 		9167B75715E3B80000B58012 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9197461E15E8776A00A86BEC /* heard-tiny@2x.png */,
+				9197461A15E876F500A86BEC /* heard@2x.png */,
+				9197461715E876A800A86BEC /* heard-retina.png */,
 				9167B76815E3BD5400B58012 /* heard-tiny.png */,
 				9167B76615E3BBEC00B58012 /* heard.png */,
 				9167B75915E3B81000B58012 /* icon.png */,
@@ -278,6 +287,9 @@
 				9167B76915E3BD5400B58012 /* heard-tiny.png in Resources */,
 				914AA1AD15E473E800BB0888 /* PrefWindow.xib in Resources */,
 				91D716ED15E8713B00EBE4F2 /* AboutWindow.xib in Resources */,
+				9197461815E876A800A86BEC /* heard-retina.png in Resources */,
+				9197461B15E876F500A86BEC /* heard@2x.png in Resources */,
+				9197461F15E8776A00A86BEC /* heard-tiny@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

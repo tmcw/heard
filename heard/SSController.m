@@ -18,10 +18,13 @@
     self = [super init];
     if (self)
     {
-        NSString* tinyName = [[NSBundle mainBundle]
+        /* NSString* tinyName = [[NSBundle mainBundle]
                               pathForResource:@"heard-tiny"
                               ofType:@"png"];
+         
         self.tiny = [[NSImage alloc] initWithContentsOfFile:tinyName];
+         */
+        self.tiny = [NSImage imageNamed:@"heard-tiny"];
         self.menu = [[NSMenu alloc] init];
         
         // Set up my status item
