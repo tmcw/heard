@@ -17,6 +17,9 @@
 		910E575815E2C2DD002271B8 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 910E573815E2C2DD002271B8 /* Cocoa.framework */; };
 		910E576015E2C2DD002271B8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 910E575E15E2C2DD002271B8 /* InfoPlist.strings */; };
 		910E576315E2C2DD002271B8 /* heardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 910E576215E2C2DD002271B8 /* heardTests.m */; };
+		912D6BAD15EAE501001698FF /* heard-huge.png in Resources */ = {isa = PBXBuildFile; fileRef = 912D6BAC15EAE501001698FF /* heard-huge.png */; };
+		912D6BB015EAE511001698FF /* heard-huge.png in Resources */ = {isa = PBXBuildFile; fileRef = 912D6BAF15EAE511001698FF /* heard-huge.png */; };
+		912D6BB215EAE5EB001698FF /* heard-huge.icns in Resources */ = {isa = PBXBuildFile; fileRef = 912D6BB115EAE5EB001698FF /* heard-huge.icns */; };
 		914AA1AA15E468CF00BB0888 /* SSPrefController.m in Sources */ = {isa = PBXBuildFile; fileRef = 914AA1A915E468CF00BB0888 /* SSPrefController.m */; };
 		914AA1AD15E473E800BB0888 /* PrefWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 914AA1AC15E473E800BB0888 /* PrefWindow.xib */; };
 		9167B75A15E3B81000B58012 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9167B75915E3B81000B58012 /* icon.png */; };
@@ -62,6 +65,9 @@
 		910E575F15E2C2DD002271B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		910E576115E2C2DD002271B8 /* heardTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = heardTests.h; sourceTree = "<group>"; };
 		910E576215E2C2DD002271B8 /* heardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = heardTests.m; sourceTree = "<group>"; };
+		912D6BAC15EAE501001698FF /* heard-huge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "heard-huge.png"; path = "assets/heard-huge.png"; sourceTree = "<group>"; };
+		912D6BAF15EAE511001698FF /* heard-huge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heard-huge.png"; sourceTree = "<group>"; };
+		912D6BB115EAE5EB001698FF /* heard-huge.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "heard-huge.icns"; sourceTree = "<group>"; };
 		914AA1A815E468CF00BB0888 /* SSPrefController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPrefController.h; sourceTree = "<group>"; };
 		914AA1A915E468CF00BB0888 /* SSPrefController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPrefController.m; sourceTree = "<group>"; };
 		914AA1AC15E473E800BB0888 /* PrefWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrefWindow.xib; sourceTree = "<group>"; };
@@ -104,6 +110,8 @@
 		910E572915E2C2DD002271B8 = {
 			isa = PBXGroup;
 			children = (
+				912D6BB115EAE5EB001698FF /* heard-huge.icns */,
+				912D6BAF15EAE511001698FF /* heard-huge.png */,
 				918C724B15E4230F006FEEB0 /* CoreLocation.framework */,
 				9167B75D15E3B8A700B58012 /* icon.icns */,
 				9167B75B15E3B81A00B58012 /* icon.png */,
@@ -195,6 +203,7 @@
 		9167B75715E3B80000B58012 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				912D6BAC15EAE501001698FF /* heard-huge.png */,
 				9197461E15E8776A00A86BEC /* heard-tiny@2x.png */,
 				9197461A15E876F500A86BEC /* heard@2x.png */,
 				9197461715E876A800A86BEC /* heard-retina.png */,
@@ -290,6 +299,9 @@
 				9197461815E876A800A86BEC /* heard-retina.png in Resources */,
 				9197461B15E876F500A86BEC /* heard@2x.png in Resources */,
 				9197461F15E8776A00A86BEC /* heard-tiny@2x.png in Resources */,
+				912D6BAD15EAE501001698FF /* heard-huge.png in Resources */,
+				912D6BB015EAE511001698FF /* heard-huge.png in Resources */,
+				912D6BB215EAE5EB001698FF /* heard-huge.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

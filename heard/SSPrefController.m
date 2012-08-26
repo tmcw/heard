@@ -41,14 +41,26 @@
     } // end if
     
     /*
-    NSString * tvarDirectory = [tvarNSSavePanelObj directory];
-    NSLog(@"doSaveAs directory = %@",tvarDirectory);
-    
-    NSString * tvarFilename = [tvarNSSavePanelObj filename];
-    NSLog(@"doSaveAs filename = %@",tvarFilename);
+     NSString * tvarDirectory = [tvarNSSavePanelObj directory];
+     NSLog(@"doSaveAs directory = %@",tvarDirectory);
+     
+     NSString * tvarFilename = [tvarNSSavePanelObj filename];
+     NSLog(@"doSaveAs filename = %@",tvarFilename);
      */
     
 } // end doSaveAs
+
+
+- (IBAction)openContaining:(id)pId; {
+    NSLog(@"Opening file at %@", [[NSUserDefaults standardUserDefaults] objectForKey:@"FilePath"]);
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"FilePath"])
+    {
+        /* via https://trac.transmissionbt.com/changeset/9342/trunk/macosx/TorrentCell.m */
+        [[NSWorkspace sharedWorkspace]
+         selectFile:[[NSUserDefaults standardUserDefaults] objectForKey:@"FilePath"]
+         inFileViewerRootedAtPath:nil];
+    }
+}
 
 #pragma mark -
 - (NSString *)currentFilePath

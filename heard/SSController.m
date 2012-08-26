@@ -46,7 +46,7 @@
         // Set up the menu
         self.aboutMI = [[NSMenuItem alloc]
                        initWithTitle:NSLocalizedString(@"About",@"")
-                       action:@selector(about)
+                        action:@selector(about)
                        keyEquivalent:@""];
         [self.aboutMI setTarget:self];
         
@@ -104,13 +104,16 @@
 
 - (void)about
 {
-    self.aboutController = [[NSWindowController alloc] initWithWindowNibName:@"AboutWindow"];
-    [self.aboutController showWindow:self];
+    NSLog(@"Showing about window");
+    NSApplication *app = [NSApplication sharedApplication];
+    [app orderFrontStandardAboutPanel:self];
+    NSLog(@"Window shown");
 }
 
 
 - (void)prefWindow
 {
+    NSLog(@"Showing pref window");
     if (!self.prefController) {
         self.prefController = [[SSPrefController alloc] initWithWindowNibName:@"PrefWindow"];
     }
@@ -123,7 +126,7 @@
     NSDictionary* newtrack = note.userInfo;
     [self.output seekToEndOfFile];
     [self.output writeData:[[NSString
-                             stringWithFormat:@"%d,\"%@\",\"%@\",\"%@\",%d,%d\n",
+                             stringWithFormat:@"%d,\"%@\",\"%@\",\"%@\",%d,%lld\n",
                              (int) [[NSDate date] timeIntervalSince1970],
                              [[newtrack objectForKey:@"Artist"] stringByReplacingOccurrencesOfString:@"\"" withString:@"\"\""],
                              [[newtrack objectForKey:@"Name"] stringByReplacingOccurrencesOfString:@"\"" withString:@"\"\""],
