@@ -101,7 +101,7 @@
 							<string key="NSFrame">{{78, 53}, {359, 26}}</string>
 							<reference key="NSSuperview" ref="488183756"/>
 							<reference key="NSWindow"/>
-							<reference key="NSNextKeyView" ref="513077380"/>
+							<reference key="NSNextKeyView" ref="29495274"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSPopUpButtonCell" key="NSCell" id="720791879">
@@ -153,7 +153,6 @@
 									</array>
 									<reference key="NSMenuFont" ref="1001404861"/>
 								</object>
-								<int key="NSSelectedIndex">-1</int>
 								<int key="NSPreferredEdge">1</int>
 								<bool key="NSUsesItemFromMenu">YES</bool>
 								<bool key="NSAltersState">YES</bool>
@@ -161,21 +160,22 @@
 							</object>
 							<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 						</object>
-						<object class="NSButton" id="513077380">
+						<object class="NSButton" id="29495274">
 							<reference key="NSNextResponder" ref="488183756"/>
 							<int key="NSvFlags">268</int>
 							<string key="NSFrame">{{75, 13}, {203, 32}}</string>
 							<reference key="NSSuperview" ref="488183756"/>
 							<reference key="NSWindow"/>
+							<reference key="NSNextKeyView"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
-							<object class="NSButtonCell" key="NSCell" id="70289368">
+							<object class="NSButtonCell" key="NSCell" id="936528664">
 								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">134217728</int>
 								<string key="NSContents">Open Containing Folder...</string>
 								<reference key="NSSupport" ref="1001404861"/>
 								<string key="NSCellIdentifier">_NS:9</string>
-								<reference key="NSControlView" ref="513077380"/>
+								<reference key="NSControlView" ref="29495274"/>
 								<int key="NSButtonFlags">-2038284288</int>
 								<int key="NSButtonFlags2">129</int>
 								<string key="NSAlternateContents"/>
@@ -222,29 +222,9 @@
 					<object class="IBActionConnection" key="connection">
 						<string key="label">openContaining:</string>
 						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="513077380"/>
+						<reference key="destination" ref="29495274"/>
 					</object>
 					<int key="connectionID">49</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
-						<string key="label">value: currentFilePath</string>
-						<reference key="source" ref="672609951"/>
-						<reference key="destination" ref="1001"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="672609951"/>
-							<reference key="NSDestination" ref="1001"/>
-							<string key="NSLabel">value: currentFilePath</string>
-							<string key="NSBinding">value</string>
-							<string key="NSKeyPath">currentFilePath</string>
-							<object class="NSDictionary" key="NSOptions">
-								<string key="NS.key.0">NSConditionallySetsEnabled</string>
-								<boolean value="NO" key="NS.object.0"/>
-							</object>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">42</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
@@ -303,7 +283,7 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="779678936"/>
 							<reference ref="413903190"/>
-							<reference ref="513077380"/>
+							<reference ref="29495274"/>
 						</array>
 						<reference key="parent" ref="322975546"/>
 					</object>
@@ -362,16 +342,16 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">47</int>
-						<reference key="object" ref="513077380"/>
+						<reference key="object" ref="29495274"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="70289368"/>
+							<reference ref="936528664"/>
 						</array>
 						<reference key="parent" ref="488183756"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">48</int>
-						<reference key="object" ref="70289368"/>
-						<reference key="parent" ref="513077380"/>
+						<reference key="object" ref="936528664"/>
+						<reference key="parent" ref="29495274"/>
 					</object>
 				</array>
 			</object>

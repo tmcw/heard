@@ -25,30 +25,18 @@
 }
 
 - (IBAction)doSaveAs:(id)pId; {
-    NSLog(@"doSaveAs");
-    NSSavePanel *tvarNSSavePanelObj	= [NSSavePanel savePanel];
-    long tvarInt	= [tvarNSSavePanelObj runModal];
+    NSSavePanel *panel = [NSSavePanel savePanel];
     
-    if(tvarInt == NSOKButton){
-     	NSLog(@"doSaveAs we have an OK button");
-        [[NSUserDefaults standardUserDefaults] setValue:[tvarNSSavePanelObj filename] forKey:@"FilePath"];
-    } else if(tvarInt == NSCancelButton) {
-     	NSLog(@"doSaveAs we have a Cancel button");
-     	return;
-    } else {
-     	NSLog(@"doSaveAs tvarInt not equal 1 or zero = %3l",tvarInt);
-     	return;
-    } // end if
+    // Configure your panel the way you want it
+    [panel setAllowedFileTypes:[NSArray arrayWithObject:@"csv"]];
     
-    /*
-     NSString * tvarDirectory = [tvarNSSavePanelObj directory];
-     NSLog(@"doSaveAs directory = %@",tvarDirectory);
-     
-     NSString * tvarFilename = [tvarNSSavePanelObj filename];
-     NSLog(@"doSaveAs filename = %@",tvarFilename);
-     */
-    
-} // end doSaveAs
+    [panel beginWithCompletionHandler:^(NSInteger result){
+        if (result == NSFileHandlingPanelOKButton) {
+            [[NSUserDefaults standardUserDefaults] setValue:[[panel URL] absoluteString]
+                                                     forKey:@"FilePath"];
+        }
+    }];
+}
 
 
 - (IBAction)openContaining:(id)pId; {
@@ -67,7 +55,7 @@
 {
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"FilePath"])
     {
-        return [[NSUserDefaults standardUserDefaults] objectForKey:@"FilePath"];
+        return (NSString*) [[NSUserDefaults standardUserDefaults] objectForKey:@"FilePath"];
     }
     return @"";
 }
