@@ -20,8 +20,8 @@
 		912D6BAD15EAE501001698FF /* heard-huge.png in Resources */ = {isa = PBXBuildFile; fileRef = 912D6BAC15EAE501001698FF /* heard-huge.png */; };
 		912D6BB015EAE511001698FF /* heard-huge.png in Resources */ = {isa = PBXBuildFile; fileRef = 912D6BAF15EAE511001698FF /* heard-huge.png */; };
 		912D6BB215EAE5EB001698FF /* heard-huge.icns in Resources */ = {isa = PBXBuildFile; fileRef = 912D6BB115EAE5EB001698FF /* heard-huge.icns */; };
-		914AA1AA15E468CF00BB0888 /* SSPrefController.m in Sources */ = {isa = PBXBuildFile; fileRef = 914AA1A915E468CF00BB0888 /* SSPrefController.m */; };
-		914AA1AD15E473E800BB0888 /* PrefWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 914AA1AC15E473E800BB0888 /* PrefWindow.xib */; };
+		912D6BC015EAF0A8001698FF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 910E573C15E2C2DD002271B8 /* CoreData.framework */; };
+		912D6BC315EAF0D9001698FF /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 912D6BC115EAF0D9001698FF /* Model.xcdatamodeld */; };
 		9167B75A15E3B81000B58012 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9167B75915E3B81000B58012 /* icon.png */; };
 		9167B75C15E3B81A00B58012 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 9167B75B15E3B81A00B58012 /* icon.png */; };
 		9167B75E15E3B8A700B58012 /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 9167B75D15E3B8A700B58012 /* icon.icns */; };
@@ -68,9 +68,7 @@
 		912D6BAC15EAE501001698FF /* heard-huge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "heard-huge.png"; path = "assets/heard-huge.png"; sourceTree = "<group>"; };
 		912D6BAF15EAE511001698FF /* heard-huge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heard-huge.png"; sourceTree = "<group>"; };
 		912D6BB115EAE5EB001698FF /* heard-huge.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = "heard-huge.icns"; sourceTree = "<group>"; };
-		914AA1A815E468CF00BB0888 /* SSPrefController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSPrefController.h; sourceTree = "<group>"; };
-		914AA1A915E468CF00BB0888 /* SSPrefController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSPrefController.m; sourceTree = "<group>"; };
-		914AA1AC15E473E800BB0888 /* PrefWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrefWindow.xib; sourceTree = "<group>"; };
+		912D6BC215EAF0D9001698FF /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		9167B75915E3B81000B58012 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = assets/icon.png; sourceTree = "<group>"; };
 		9167B75B15E3B81A00B58012 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		9167B75D15E3B8A700B58012 /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
@@ -90,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				912D6BC015EAF0A8001698FF /* CoreData.framework in Frameworks */,
 				918C724C15E4230F006FEEB0 /* CoreLocation.framework in Frameworks */,
 				910E573915E2C2DD002271B8 /* Cocoa.framework in Frameworks */,
 			);
@@ -156,13 +155,11 @@
 			isa = PBXGroup;
 			children = (
 				910E574A15E2C2DD002271B8 /* SSAppDelegate.h */,
-				914AA1A815E468CF00BB0888 /* SSPrefController.h */,
-				914AA1A915E468CF00BB0888 /* SSPrefController.m */,
 				910E574B15E2C2DD002271B8 /* SSAppDelegate.m */,
+				912D6BC115EAF0D9001698FF /* Model.xcdatamodeld */,
 				9167B76315E3B99500B58012 /* SSController.h */,
 				9167B76415E3B99500B58012 /* SSController.m */,
 				910E574D15E2C2DD002271B8 /* MainMenu.xib */,
-				914AA1AC15E473E800BB0888 /* PrefWindow.xib */,
 				91D716EC15E8713B00EBE4F2 /* AboutWindow.xib */,
 				910E573F15E2C2DD002271B8 /* Supporting Files */,
 			);
@@ -294,7 +291,6 @@
 				9167B75E15E3B8A700B58012 /* icon.icns in Resources */,
 				9167B76715E3BBEC00B58012 /* heard.png in Resources */,
 				9167B76915E3BD5400B58012 /* heard-tiny.png in Resources */,
-				914AA1AD15E473E800BB0888 /* PrefWindow.xib in Resources */,
 				91D716ED15E8713B00EBE4F2 /* AboutWindow.xib in Resources */,
 				9197461815E876A800A86BEC /* heard-retina.png in Resources */,
 				9197461B15E876F500A86BEC /* heard@2x.png in Resources */,
@@ -339,7 +335,7 @@
 				910E574515E2C2DD002271B8 /* main.m in Sources */,
 				910E574C15E2C2DD002271B8 /* SSAppDelegate.m in Sources */,
 				9167B76515E3B99500B58012 /* SSController.m in Sources */,
-				914AA1AA15E468CF00BB0888 /* SSPrefController.m in Sources */,
+				912D6BC315EAF0D9001698FF /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,6 +529,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		912D6BC115EAF0D9001698FF /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				912D6BC215EAF0D9001698FF /* Model.xcdatamodel */,
+			);
+			currentVersion = 912D6BC215EAF0D9001698FF /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 910E572B15E2C2DD002271B8 /* Project object */;
 }

@@ -8,9 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 #import "SSController.h"
-#import "SSPrefController.h"
 
 
 @interface SSAppDelegate : NSObject <NSApplicationDelegate>
     @property (strong) SSController *ss;
+
+@property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
+@property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
+
+- (void)saveContext;
 @end

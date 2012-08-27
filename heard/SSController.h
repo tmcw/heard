@@ -8,12 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-#import "SSPrefController.h"
+#import <CoreData/CoreData.h>
 
-@interface SSController : NSObject <NSApplicationDelegate>
+@interface SSController : NSObject <NSApplicationDelegate> {
+    NSManagedObjectContext *managedObjectContext;
+}
 // Configuration
 @property (strong) NSUserDefaults *prefs;
-@property (strong) SSPrefController *prefController;
 @property (strong) NSWindowController *aboutController;
 
 // UI
@@ -21,12 +22,8 @@
 @property (strong) NSMenu *menu;
 @property (strong) NSMenuItem *quitMI;
 @property (strong) NSMenuItem *aboutMI;
-@property (strong) NSMenuItem *prefMI;
 @property (strong) NSImage *tiny;
 
-// The log
-@property (strong) NSString *logPath;
-@property (strong) NSString *dateString;
-@property (strong) NSFileHandle *output;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 @end

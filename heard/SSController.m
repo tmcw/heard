@@ -7,7 +7,6 @@
 //
 
 #import "SSController.h"
-#import "SSPrefController.h"
 
 @implementation SSController
 
@@ -19,10 +18,10 @@
     if (self)
     {
         /* NSString* tinyName = [[NSBundle mainBundle]
-                              pathForResource:@"heard-tiny"
-                              ofType:@"png"];
+         pathForResource:@"heard-tiny"
+         ofType:@"png"];
          
-        self.tiny = [[NSImage alloc] initWithContentsOfFile:tinyName];
+         self.tiny = [[NSImage alloc] initWithContentsOfFile:tinyName];
          */
         self.tiny = [NSImage imageNamed:@"heard-tiny"];
         self.menu = [[NSMenu alloc] init];
@@ -36,18 +35,20 @@
         [self.statusItem setImage:self.tiny];
         [self.statusItem setHighlightMode:YES];
         
-        // Set up the menu
-        self.prefMI = [[NSMenuItem alloc]
-                       initWithTitle:NSLocalizedString(@"Preferences...",@"")
-                       action:@selector(prefWindow)
-                       keyEquivalent:@""];
-        [self.prefMI setTarget:self];
+        /*
+         // Set up the menu
+         self.prefMI = [[NSMenuItem alloc]
+         initWithTitle:NSLocalizedString(@"Preferences...",@"")
+         action:@selector(prefWindow)
+         keyEquivalent:@""];
+         [self.prefMI setTarget:self];
+         */
         
         // Set up the menu
         self.aboutMI = [[NSMenuItem alloc]
-                       initWithTitle:NSLocalizedString(@"About",@"")
+                        initWithTitle:NSLocalizedString(@"About",@"")
                         action:@selector(about)
-                       keyEquivalent:@""];
+                        keyEquivalent:@""];
         [self.aboutMI setTarget:self];
         
         // Set up the menu
@@ -56,44 +57,46 @@
                        action:@selector(terminate:)
                        keyEquivalent:@""];
         
-        [self.menu addItem:self.prefMI];
+        // [self.menu addItem:self.prefMI];
         [self.menu addItem:self.aboutMI];
         [self.menu addItem:self.quitMI];
     }
     
-    self.logPath = [[NSUserDefaults standardUserDefaults] objectForKey:@"FilePath"];
-    
-    self.output = [NSFileHandle
-                   fileHandleForWritingAtPath:self.logPath];
-    
-    
-    if (!self.logPath) {
-        [self prefWindow];
-    } else if (self.output == nil) {
-        BOOL success = [[NSFileManager defaultManager]
-                        createFileAtPath:self.logPath
-                        contents:[@"minute,artist,song,album,duration,id\n" dataUsingEncoding:NSUTF8StringEncoding]
-                        attributes:nil];
-        
-        if (success == YES) {
-            self.output = [NSFileHandle
-                           fileHandleForWritingAtPath:self.logPath];
-        } else {
-            NSAlert *alert = [[NSAlert alloc] init];
-            [alert setMessageText:
-             [NSString stringWithFormat:@"Couldn't initialize log at %@. Choose a new path.",
-              self.logPath]];
-            [alert setAlertStyle:NSWarningAlertStyle];
-            [alert addButtonWithTitle:@"Ok"];
-            [alert runModal];
-            [self prefWindow];
-        }
-    }
-    
-    
-    if (!self.logPath || self.output == nil) {
-        [self prefWindow];
-    }
+    /*
+     self.logPath = [[NSUserDefaults standardUserDefaults] objectForKey:@"FilePath"];
+     
+     self.output = [NSFileHandle
+     fileHandleForWritingAtPath:self.logPath];
+     
+     if (!self.logPath) {
+     [self prefWindow];
+     } else if (self.output == nil) {
+     BOOL success = [[NSFileManager defaultManager]
+     createFileAtPath:self.logPath
+     contents:[@"minute,artist,song,album,duration,id\n" dataUsingEncoding:NSUTF8StringEncoding]
+     attributes:nil];
+     
+     if (success == YES) {
+     self.output = [NSFileHandle
+     fileHandleForWritingAtPath:self.logPath];
+     } else {
+     NSAlert *alert = [[NSAlert alloc] init];
+     [alert setMessageText:
+     [NSString stringWithFormat:@"Couldn't initialize log at %@. Choose a new path.",
+     self.logPath]];
+     [alert setAlertStyle:NSWarningAlertStyle];
+     [alert addButtonWithTitle:@"Ok"];
+     [alert runModal];
+     [self prefWindow];
+     }
+     }
+     
+     
+     if (!self.logPath || self.output == nil) {
+     [self prefWindow];
+     }
+     
+     */
     // Insert code here to initialize your application
     [[NSDistributedNotificationCenter defaultCenter] addObserver:self
                                                         selector:@selector(onPlayerInfo:)
@@ -110,32 +113,28 @@
     NSLog(@"Window shown");
 }
 
-
-- (void)prefWindow
++ (BOOL)autosavesInPlace
 {
-    NSLog(@"Showing pref window");
-    if (!self.prefController) {
-        self.prefController = [[SSPrefController alloc] initWithWindowNibName:@"PrefWindow"];
-    }
-    
-    [self.prefController showWindow:self];
+    return YES;
 }
 
 - (void)onPlayerInfo:(NSNotification*)note
 {
     NSDictionary* newtrack = note.userInfo;
-    [self.output seekToEndOfFile];
-    [self.output writeData:[[NSString
-                             stringWithFormat:@"%d,\"%@\",\"%@\",\"%@\",%d,%lld\n",
-                             (int) [[NSDate date] timeIntervalSince1970],
-                             [[newtrack objectForKey:@"Artist"] stringByReplacingOccurrencesOfString:@"\"" withString:@"\"\""],
-                             [[newtrack objectForKey:@"Name"] stringByReplacingOccurrencesOfString:@"\"" withString:@"\"\""],
-                             [[newtrack objectForKey:@"Album"] stringByReplacingOccurrencesOfString:@"\"" withString:@"\"\""],
-                             [[newtrack objectForKey:@"Total Time"] longLongValue] / 1000,
-                             [[newtrack objectForKey:@"PersistentID"] longLongValue] / 1000
-
-                             ]
-                            dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              insertNewObjectForEntityForName:@"Play"
+                                              inManagedObjectContext:moc];
+    
+    [entityDescription setValue:[newtrack objectForKey:@"Name"] forKey:@"name"];
+    [entityDescription setValue:[newtrack objectForKey:@"Artist"] forKey:@"artist"];
+    [entityDescription setValue:[
+                                 NSNumber numberWithLongLong:[
+                                                              [newtrack objectForKey:@"PersistentID"] longLongValue]]
+                         forKey:@"id"];
+    [entityDescription setValue:[NSDate date] forKey:@"minute"];
+    [entityDescription setValue:[newtrack objectForKey:@"Total Time"] forKey:@"duration"];
 }
 
 @end
