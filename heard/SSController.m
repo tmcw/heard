@@ -29,8 +29,7 @@
         [self.statusItem setImage:self.tiny];
         [self.statusItem setHighlightMode:YES];
         
-        self.exportMI = [[NSMenuItem alloc] initWithTitle:[NSString stringWithFormat:@"Export (%lu)",
-                                                           0]
+        self.exportMI = [[NSMenuItem alloc] initWithTitle:@"Export"
                                                    action:@selector(export)
                                             keyEquivalent:@""];
         [self.exportMI setTarget:self]; // or whatever target you want
@@ -92,7 +91,6 @@
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:array
                                                            options:NSJSONWritingPrettyPrinted
                                                              error:&error];
-        // NSLog(@"JSON = %@", [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding]);
         [jsonData writeToURL:savePanel.URL atomically:TRUE];
     }
     NSLog(@"Window shown");
@@ -133,14 +131,27 @@
     [entityDescription setValue:[newtrack objectForKey:@"Name"] forKey:@"name"];
     [entityDescription setValue:[newtrack objectForKey:@"Album"] forKey:@"album"];
     [entityDescription setValue:[newtrack objectForKey:@"Artist"] forKey:@"artist"];
-    [entityDescription setValue:[NSNumber numberWithLongLong:[[newtrack objectForKey:@"PersistentID"]longLongValue]]
-                         forKey:@"id"];
+    [entityDescription setValue:[newtrack objectForKey:@"Rating"] forKey:@"rating"];
+    [entityDescription setValue:[[newtrack objectForKey:@"PersistentID"]stringValue] forKey:@"id" ];
     [entityDescription setValue:[NSDate date] forKey:@"minute"];
     [entityDescription setValue:[newtrack objectForKey:@"Total Time"] forKey:@"duration"];
     
     
     NSError *error = nil;
     [moc save:&error];
+    
+    [self.exportMI setTitle:[NSString stringWithFormat:@"Export (%lu)",
+                             [self songsCount]]];
+    
+    if (error != nil) {
+        NSLog(@"Error: could not save");
+        NSAlert *alert = [NSAlert alertWithMessageText:@"Unable to export plays"
+                                         defaultButton:@"OK"
+                                       alternateButton:nil
+                                           otherButton:nil
+                             informativeTextWithFormat:@"Please file an issue on GitHub"];
+        [alert runModal];
+    }
 }
 
 @end
