@@ -60,6 +60,7 @@
 {
     NSLog(@"Showing about window");
     NSApplication *app = [NSApplication sharedApplication];
+    [app activateIgnoringOtherApps:YES];
     [app orderFrontStandardAboutPanel:self];
     NSLog(@"Window shown");
 }
