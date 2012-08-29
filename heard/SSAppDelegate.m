@@ -8,6 +8,7 @@
 
 #import "SSAppDelegate.h"
 #import "SSController.h"
+#import "NSFileManager+DirectoryLocations.h"
 
 @implementation SSAppDelegate
 @class SSPrefController;
@@ -76,7 +77,11 @@
         return _persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"heard.sqlite"];
+    NSString* supportDir = [[[NSFileManager defaultManager] applicationSupportDirectory]stringByAppendingPathComponent:@"heard.sqlite"];
+    NSURL *storeURL = [NSURL fileURLWithPath:supportDir];
+    
+    NSLog(@"Support dir is %@", supportDir);
+    NSLog(@"Storing to %@", storeURL);
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
