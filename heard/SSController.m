@@ -149,7 +149,8 @@
     [entityDescription setValue:[newtrack objectForKey:@"Album"] forKey:@"album"];
     [entityDescription setValue:[newtrack objectForKey:@"Artist"] forKey:@"artist"];
     [entityDescription setValue:[newtrack objectForKey:@"Rating"] forKey:@"rating"];
-    [entityDescription setValue:[[newtrack objectForKey:@"PersistentID"]stringValue] forKey:@"id" ];
+    [entityDescription setValue:[NSString stringWithFormat:@"%qX",
+                                 [[newtrack objectForKey:@"PersistentID"] longLongValue]] forKey:@"id"];
     [entityDescription setValue:[NSDate date] forKey:@"minute"];
     [entityDescription setValue:[newtrack objectForKey:@"Total Time"] forKey:@"duration"];
     
