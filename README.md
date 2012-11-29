@@ -29,6 +29,12 @@ data storage, and relies on a single third-party library,
 [underscore.m](http://underscorem.org/). It uses [CocoaPods](https://github.com/CocoaPods/CocoaPods)
 to include that library.
 
+## Running It
+
+This is an unsigned app, not distributed in the Apple Store. To run it on Macs
+with Gatekeeper installed, either `(right click or control-click) -> Open` or
+turn off Gatekeeper.
+
 ## See Also
 
 * This project is possible thanks to learning from the design of
