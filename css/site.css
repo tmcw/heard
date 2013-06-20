@@ -1,0 +1,39 @@
+body {
+    font-size:20px;
+}
+
+h1 {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight:700;
+}
+
+h1 .deemphasize {
+    font-weight:400;
+}
+
+.align-right {
+    text-align:right;
+}
+
+a {
+    color:#4069A0;
+    text-decoration:none;
+}
+
+a:hover {
+    text-decoration:underline;
+}
+
+.heard-icon {
+    width:128px;
+    height:128px;
+    max-width:100%;
+}
+
+.dl-button {
+    font-size:14px;
+    background:#eee;
+    border:1px solid #ddd;
+    padding:5px;
+    border-radius:3px;
+}
